@@ -18,6 +18,9 @@ const {
 const {
     createTravelRequestCallback
 } = require('./app-home-create-travel-request-btn');
+const {
+    createRecognitionCallback
+} = require('./app-home-create-recognition-btn');
 
 module.exports.register = (app) => {
     app.action('authorize-with-salesforce', appHomeAuthorizeButtonCallback);
@@ -33,4 +36,5 @@ module.exports.register = (app) => {
     app.action('approve-request', appHomeApproveRequestCallback);
     app.action('reject-request', appHomeRejectRequestCallback);
     app.action('create-travel-request', createTravelRequestCallback);
+    app.action('create-recognition', createRecognitionCallback);
 };

@@ -63,7 +63,7 @@ const createTravelRequestForm = (approvers) => {
                 )
                 .blockId('input-desc')
         )
-        .callbackId('initiate_travel_request')
+        .callbackId('initiate_recognition')
         .buildToJSON();
 };
 

@@ -1,9 +1,25 @@
 'use strict';
 const { Modal, Blocks, Elements, Bits } = require('slack-block-builder');
 
-const createTravelRequestForm = (approvers) => {
+const createRecognitionForm = (categories) => {
     return Modal({ title: 'New Recognition', submit: 'Submit' })
         .blocks(
+            Blocks.Input({ label: 'Category' })
+            .element(
+                Elements.StaticSelect({
+                    placeholder: 'Select a category...'
+                })
+                    .actionId('input-category')
+                    .options(
+                        categories.map((category) =>
+                            Bits.Option({
+                                text: category.Name,
+                                value: category.Id
+                            })
+                        )
+                    )
+            )
+            /*.blockId('input-person'), // Map items to Option objects
             Blocks.Input({ label: 'Category' })
                 .element(
                     Elements.TextInput({
@@ -33,10 +49,10 @@ const createTravelRequestForm = (approvers) => {
                             )
                         )
                 )
-                .blockId('input-person'), // Map items to Option objects
+                .blockId('input-person'), // Map items to Option objects*/
         )
-        .callbackId('initiate_travel_request')
+        .callbackId('initiate_recognition')
         .buildToJSON();
 };
 
-module.exports = { createTravelRequestForm };
+module.exports = { createRecognitionForm };

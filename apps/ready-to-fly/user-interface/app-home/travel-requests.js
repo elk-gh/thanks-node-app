@@ -59,8 +59,13 @@ const myTravelRequestsScreen = (travelRequests, username, instanceUrl) => {
         actionId: 'create-travel-request',
         text: 'Create New Travel Request'
     });
+    const createNewRecognitionButton = Elements.Button({
+        actionId: 'create-recognition',
+        text: 'Create New Recognition'
+    });
     homeTab.blocks(Blocks.Divider());
     homeTab.blocks(Blocks.Actions().elements(createNewRequestButton));
+    homeTab.blocks(Blocks.Actions().elements(createNewRecognitionButton));
 
     return homeTab.buildToJSON();
 };

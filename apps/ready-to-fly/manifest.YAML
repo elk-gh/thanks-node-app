@@ -17,6 +17,10 @@ features:
       type: global
       callback_id: create-travel-request
       description: Creates Travel Request in Salesforce
+    - name: Create Recognition
+      type: global
+      callback_id: create-recognition
+      description: Creates Recognition
 oauth_config:
   scopes:
     bot:

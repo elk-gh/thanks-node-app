@@ -15,6 +15,7 @@ const openCreateRecognitionModal = async (triggerId, client, context) => {
         const categories = await fetchCategories(
             context.sfconnection
         );
+        console.log('categories',categories);
         await client.views.open({
             trigger_id: triggerId,
             view: createRecognitionForm(categories)

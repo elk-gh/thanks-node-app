@@ -8,6 +8,7 @@ const fetchCategories = async (connection) => {
         const result = await connection.query(
             `SELECT Id, Name FROM CGRP_Category__c`
         );
+        console.log('result',result);
         return result;
     } catch (e) {
         throw new Error(e.message);

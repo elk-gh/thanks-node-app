@@ -12,7 +12,7 @@ const createRecognitionForm = (categories) => {
                 })
                     .actionId('input-category')
                     .options(
-                        categories.map((category) =>
+                        categories.records.map((category) =>
                             Bits.Option({
                                 text: category.Name,
                                 value: category.Id

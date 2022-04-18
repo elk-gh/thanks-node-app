@@ -6,15 +6,16 @@ const createRecognitionForm = (categories) => {
     return Modal({ title: 'New Recognition', submit: 'Submit' })
         .blocks(
             Blocks.Input({ label: 'People to give thanks!' })
-            .element(
-              Elements.UserMultiSelect({ placeholder: 'Select people...' })
-                .actionId('input-people')
-            .blockId('input-people'),
+                .element(
+                    Elements.UserMultiSelect({ placeholder: 'Select people...' })
+                    .actionId('input-people')
+                )
+                .blockId('input-people'),
             Blocks.Input({ label: 'Category' })
-            .element(
-                Elements.StaticSelect({
-                    placeholder: 'Select a category...'
-                })
+                .element(
+                    Elements.StaticSelect({
+                        placeholder: 'Select a category...'
+                    })
                     .actionId('input-category')
                     .options(
                         categories.records.map((category) =>
@@ -24,15 +25,16 @@ const createRecognitionForm = (categories) => {
                             })
                         )
                     )
-            )
-            .blockId('input-category'),          
+                )
+                .blockId('input-category'),          
             Blocks.Input({ label: 'Message' })
-            .element(
-                Elements.TextInput({
-                    placeholder: 'Thank you message'
-                }).actionId('input-message')
-            )
-            .blockId('input-message'),
+                .element(
+                    Elements.TextInput({
+                        placeholder: 'Thank you message'
+                    })
+                    .actionId('input-message')
+                )
+                .blockId('input-message'),
             /*.blockId('input-person'), // Map items to Option objects
             Blocks.Input({ label: 'Category' })
                 .element(

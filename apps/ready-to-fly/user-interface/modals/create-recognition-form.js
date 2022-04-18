@@ -5,6 +5,11 @@ const createRecognitionForm = (categories) => {
     console.log('createRecognitionForm',categories);
     return Modal({ title: 'New Recognition', submit: 'Submit' })
         .blocks(
+            Blocks.Input({ label: 'People to give thanks!' })
+            .element(
+              Elements.UserMultiSelect({ placeholder: 'Select people...' })
+                .actionId('input-people')
+            .blockId('input-people'),
             Blocks.Input({ label: 'Category' })
             .element(
                 Elements.StaticSelect({
@@ -20,6 +25,14 @@ const createRecognitionForm = (categories) => {
                         )
                     )
             )
+            .blockId('input-category'),          
+            Blocks.Input({ label: 'Message' })
+            .element(
+                Elements.TextInput({
+                    placeholder: 'Thank you message'
+                }).actionId('input-message')
+            )
+            .blockId('input-message'),
             /*.blockId('input-person'), // Map items to Option objects
             Blocks.Input({ label: 'Category' })
                 .element(

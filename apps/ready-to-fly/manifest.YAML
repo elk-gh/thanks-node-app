@@ -1,42 +1,34 @@
-_metadata:
-  major_version: 1
-  minor_version: 1
 display_information:
-  name: Ready to Fly
-  description: Manage Travel Requests from Slack
+  name: Thanks!
+  description: CloudGaia's Appreciation App
+  background_color: "#004492"
 features:
-  app_home:
-    home_tab_enabled: true
-    messages_tab_enabled: true
-    messages_tab_read_only_enabled: true
   bot_user:
-    display_name: Ready to Fly
-    always_online: true
+    display_name: CGRecognition
+    always_online: false
   shortcuts:
-    - name: Create Travel Request
-      type: global
-      callback_id: create-travel-request
-      description: Creates Travel Request in Salesforce
-    - name: Create Recognition
+    - name: Give Thanks!
       type: global
       callback_id: create-recognition
       description: Creates Recognition
 oauth_config:
   scopes:
     bot:
+      - incoming-webhook
+      - users:read
+      - users:read.email
+      - commands
       - chat:write
       - chat:write.public
       - chat:write.customize
-      - commands
-      - users:read
 settings:
   event_subscriptions:
-    request_url: https://heroku-app.herokuapp.com/slack/events
+    request_url: https://heroku-app-cold-dust-18.herokuapp.com/slack/events
     bot_events:
       - app_home_opened
   interactivity:
     is_enabled: true
-    request_url: https://heroku-app.herokuapp.com/slack/events
+    request_url: https://heroku-app-cold-dust-18.herokuapp.com/slack/events
   org_deploy_enabled: false
   socket_mode_enabled: false
   token_rotation_enabled: false

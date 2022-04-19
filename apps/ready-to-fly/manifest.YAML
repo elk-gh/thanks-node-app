@@ -3,8 +3,12 @@ display_information:
   description: CloudGaia's Appreciation App
   background_color: "#004492"
 features:
+  app_home:
+    home_tab_enabled: true
+    messages_tab_enabled: false
+    messages_tab_read_only_enabled: true
   bot_user:
-    display_name: CGRecognition
+    display_name: Thanks
     always_online: false
   shortcuts:
     - name: Give Thanks!

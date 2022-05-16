@@ -1,5 +1,4 @@
 'use strict';
-const { myTravelRequestsCallback } = require('../utils/home-tab-callbacks');
 
 const appHomeOpenedCallback = async ({ client, event, body, context }) => {
     if (event.tab !== 'home') {
@@ -8,7 +7,7 @@ const appHomeOpenedCallback = async ({ client, event, body, context }) => {
         return;
     }
     try {
-        myTravelRequestsCallback(context, client, event.user);
+
     } catch (error) {
         // eslint-disable-next-line no-console
         console.error(error);

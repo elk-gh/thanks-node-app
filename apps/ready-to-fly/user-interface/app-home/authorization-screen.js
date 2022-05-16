@@ -9,7 +9,7 @@ const authorizationScreen = (authUrl) => {
         Blocks.Header({ text: 'Connect to Salesforce' }),
         Blocks.Divider(),
         Blocks.Section({
-            text: 'To get started with Ready to Fly, authorize with Salesforce'
+            text: 'To give Thanks in Slack, authorize with Salesforce'
         }),
         Actions({ blockId: 'sf-login' }).elements(
             Elements.Button({ text: 'Authorize with Salesforce' })

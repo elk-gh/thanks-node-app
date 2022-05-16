@@ -24,17 +24,5 @@ const {
 
 module.exports.register = (app) => {
     app.action('authorize-with-salesforce', appHomeAuthorizeButtonCallback);
-    app.action('view-request', appHomeViewRequestButtonCallback);
-    app.action(
-        'view-my-travel-requests',
-        appHomeViewMyTravelRequestsButtonCallback
-    );
-    app.action(
-        'view-travel-requests-to-review',
-        appHomeViewTravelRequestsToReviewButtonCallback
-    );
-    app.action('approve-request', appHomeApproveRequestCallback);
-    app.action('reject-request', appHomeRejectRequestCallback);
-    app.action('create-travel-request', createTravelRequestCallback);
     app.action('create-recognition', createRecognitionCallback);
 };

@@ -2,7 +2,7 @@
 const { authorizationScreen } = require('./authorization-screen');
 const {
     thanksScreen
-} = require('./travel-requests');
+} = require('./thanks');
 
 module.exports = {
     authorizationScreen,

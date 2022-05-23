@@ -1,14 +1,10 @@
 'use strict';
 const { authorizationScreen } = require('./authorization-screen');
 const {
-    myTravelRequestsScreen,
-    travelRequestsReviewScreen,
-    appendPendingTravelRequestBlock
+    thanksScreen
 } = require('./travel-requests');
 
 module.exports = {
     authorizationScreen,
-    myTravelRequestsScreen,
-    travelRequestsReviewScreen,
-    appendPendingTravelRequestBlock
+    thanksScreen
 };

@@ -1,0 +1,38 @@
+display_information:
+  name: Thanks!
+  description: CloudGaia's Appreciation App
+  background_color: "#004492"
+features:
+  app_home:
+    home_tab_enabled: true
+    messages_tab_enabled: false
+    messages_tab_read_only_enabled: true
+  bot_user:
+    display_name: Thanks
+    always_online: false
+  shortcuts:
+    - name: Give Thanks!
+      type: global
+      callback_id: create-recognition
+      description: Creates Recognition
+oauth_config:
+  scopes:
+    bot:
+      - incoming-webhook
+      - users:read
+      - users:read.email
+      - commands
+      - chat:write
+      - chat:write.public
+      - chat:write.customize
+settings:
+  event_subscriptions:
+    request_url: https://heroku-app-cold-dust-18.herokuapp.com/slack/events
+    bot_events:
+      - app_home_opened
+  interactivity:
+    is_enabled: true
+    request_url: https://heroku-app-cold-dust-18.herokuapp.com/slack/events
+  org_deploy_enabled: false
+  socket_mode_enabled: false
+  token_rotation_enabled: false

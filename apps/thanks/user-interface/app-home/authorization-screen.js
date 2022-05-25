@@ -1,0 +1,25 @@
+'use strict';
+const { HomeTab, Actions, Elements, Blocks } = require('slack-block-builder');
+
+const authorizationScreen = (authUrl) => {
+    const homeTab = HomeTab({
+        callbackId: 'authorize-salesforce',
+        privateMetaData: 'authorization-screen'
+    }).blocks(
+        Blocks.Header({ text: 'Connect to SalesforceX' }),
+        Blocks.Divider(),
+        Blocks.Section({
+            text: 'To give Thanks in Slack, authorize with Salesforce'
+        }),
+        Actions({ blockId: 'sf-login' }).elements(
+            Elements.Button({ text: 'Authorize with SalesforceX' })
+                .value('authorize-with-salesforce')
+                .actionId('authorize-with-salesforce')
+                .url(authUrl)
+                .primary(true)
+        )
+    );
+    return homeTab.buildToJSON();
+};
+
+module.exports = { authorizationScreen };

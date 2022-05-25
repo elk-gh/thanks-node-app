@@ -6,13 +6,13 @@ const authorizationScreen = (authUrl) => {
         callbackId: 'authorize-salesforce',
         privateMetaData: 'authorization-screen'
     }).blocks(
-        Blocks.Header({ text: 'Connect to Salesforce' }),
+        Blocks.Header({ text: 'Connect to SalesforceX' }),
         Blocks.Divider(),
         Blocks.Section({
             text: 'To give Thanks in Slack, authorize with Salesforce'
         }),
         Actions({ blockId: 'sf-login' }).elements(
-            Elements.Button({ text: 'Authorize with Salesforce' })
+            Elements.Button({ text: 'Authorize with SalesforceX' })
                 .value('authorize-with-salesforce')
                 .actionId('authorize-with-salesforce')
                 .url(authUrl)

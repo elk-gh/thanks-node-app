@@ -4,7 +4,7 @@ const appHomeAuthorizeButtonCallback = async ({ body, ack, client }) => {
     // but the user is redirected to /oauthstart custom route
     try {
         await ack();
-        console.log('Initiating user to user OAuth dance...');
+        console.log('Initiating user to user OAuth danceX...');
     } catch (error) {
         // eslint-disable-next-line no-console
         console.error(error);

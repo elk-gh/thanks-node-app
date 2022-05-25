@@ -4,7 +4,6 @@ const { HomeTab, Blocks, Elements, Md } = require('slack-block-builder');
 
 const thanksScreen = (username, instanceUrl) => {
     const homeTab = HomeTab();
-    _addButtonsToHomeTab(homeTab);
     homeTab.blocks(
         Blocks.Header({
             text: `Thanks!`

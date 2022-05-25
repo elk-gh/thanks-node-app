@@ -5,7 +5,7 @@ const {
     travelRequestCreationFailed
 } = require('../../user-interface/modals');
 const { insertTravelRequest } = require('../../salesforce/dml/travel-request');
-const { myTravelRequestsCallback } = require('../utils/home-tab-callbacks');
+const { thanksCallback } = require('../utils/home-tab-callbacks');
 
 const createRecognitionCallback = async ({
     ack,
@@ -68,7 +68,7 @@ const createRecognitionCallback = async ({
                         view: travelRequestSuccess()
                     });
                     // Navigate to app home
-                    myTravelRequestsCallback(context, client, userId);
+                    thanksCallback(context, client, userId);
                 } else {
                     // Trigger a failure message Modal
                     await client.views.open({

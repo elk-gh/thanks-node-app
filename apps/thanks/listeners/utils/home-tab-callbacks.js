@@ -5,7 +5,7 @@ const {
 } = require('../../user-interface/app-home');
 
 const thanksCallback = async (context, client, slackUserId) => {
-    if (!context.hasAuthorized) {
+    if (context.hasAuthorized) {
         const conn = context.sfconnection;
         const currentuser = await conn.identity();
 

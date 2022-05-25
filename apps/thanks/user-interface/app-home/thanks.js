@@ -15,7 +15,6 @@ const thanksScreen = (username, instanceUrl) => {
         actionId: 'create-recognition',
         text: 'Create New Recognition'
     });
-    homeTab.blocks(Blocks.Divider());
     homeTab.blocks(Blocks.Actions().elements(createNewRecognitionButton));
 
     return homeTab.buildToJSON();

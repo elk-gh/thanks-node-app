@@ -11,10 +11,7 @@ const thanksCallback = async (context, client, slackUserId) => {
 
         await client.views.publish({
             user_id: slackUserId,
-            view: thanksScreen(
-                currentuser.display_name,
-                conn.instanceUrl
-            )
+            view: thanksScreen(currentuser.display_name, conn.instanceUrl)
         });
     } else {
         _publishAuthScreen(client, slackUserId);
@@ -22,6 +19,7 @@ const thanksCallback = async (context, client, slackUserId) => {
 };
 
 const _publishAuthScreen = async (client, slackUserId) => {
+    console.log('_publishAuthScreen slackUserId', slackUserId);
     await client.views.publish({
         user_id: slackUserId,
         view: authorizationScreen(

@@ -4,7 +4,9 @@ const {
     travelRequestSuccess,
     travelRequestCreationFailed
 } = require('../../user-interface/modals');
-const { insertTravelRequest } = require('../../salesforce/dml/travel-request');
+const {
+    insertRecognition
+} = require('../../salesforce/dml/create-recognition');
 const { thanksCallback } = require('../utils/home-tab-callbacks');
 
 const createRecognitionCallback = async ({
@@ -15,28 +17,22 @@ const createRecognitionCallback = async ({
     body
 }) => {
     // Capture Data Input for the travel request record creation in Salesforce
-    const origin =
-        view['state']['values']['input-origin']['input-origin'].value;
-    const destination =
-        view['state']['values']['input-dest']['input-dest'].value;
-    const startDate =
-        view['state']['values']['input-start-date']['input-start-date']
-            .selected_date;
-    const endDate =
-        view['state']['values']['input-end-date']['input-end-date']
-            .selected_date;
-    const cost = view['state']['values']['input-cost']['input-cost'].value;
-    const desc = view['state']['values']['input-desc']['input-desc'].value;
-    const approver =
-        view['state']['values']['input-approver']['input-approver']
+    const data = view['state']['values'];
+    console.log('input data', JSON.parse(JSON.stringify(data)));
+    const people =
+        view['state']['values']['input-people']['input-people'].value;
+    const categories =
+        view['state']['values']['input-category']['input-category']
             .selected_option.value;
+    const message =
+        view['state']['values']['input-message']['input-message'].value;
     // Add validations to forms before acknowledgement
     // This shows how to validate if cost contains only numbers and not a string
-    if (isNaN(cost)) {
+    if (message.length < 30) {
         await ack({
             response_action: 'errors',
             errors: {
-                'input-cost': 'Enter a valid number for cost'
+                'input-message': 'Please create a longer message'
             }
         });
     } else {
@@ -45,21 +41,21 @@ const createRecognitionCallback = async ({
             // We do not use it, but this is how you can extract the Id of the Slack user from view listeners
             const userId = body['user']['id'];
 
-            const travelRequestInput = {
-                origin,
-                destination,
-                startDate,
-                endDate,
-                cost,
-                desc,
-                userId,
-                approver
+            let users = [
+                { Id: '0052S00000B9NbZ', SlackMemberId__c: 'U02NV5C2SMS' }
+            ];
+            let lstUsersJSON = JSON.stringify(users);
+            const recognitionRequestInput = {
+                categories,
+                lstUsersJSON,
+                message
             };
+
             try {
                 // Insert travel request
-                const result = await insertTravelRequest(
+                const result = await insertRecognition(
                     context.sfconnection,
-                    travelRequestInput
+                    recognitionRequestInput
                 );
                 if (result.success) {
                     // Trigger a Success Modal

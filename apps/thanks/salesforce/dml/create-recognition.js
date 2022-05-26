@@ -7,20 +7,18 @@ const insertRecognition = async (connection, recognitionRequestInput) => {
             recognitionRequestInput
         );
         const result = connection.apex.post(
-            'v1/SlackService/',
+            '/v1/SlackService/',
             recognitionRequestInput
         );
         if (!result.success) {
             throw (
-                'Failed to create travel request record in Salesforce ' +
-                result.err[0]
+                'Failed to create recognition record Salesforce ' +
+                result.message
             );
         }
         return result;
     } catch (e) {
-        throw (
-            'Failed to create travel request record in Salesforce ' + e.message
-        );
+        throw 'Failed to create recognition record in Salesforce ' + e.message;
     }
 };
 

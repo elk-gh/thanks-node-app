@@ -20,19 +20,22 @@ const createRecognitionCallback = async ({
     const data = view['state']['values'];
     console.log('input data', JSON.parse(JSON.stringify(data)));
     const people =
-        view['state']['values']['input-people']['input-people'].value;
+        view['state']['values']['input-people']['input-people'].selected_users;
+    console.log('input data', JSON.parse(JSON.stringify(people)));
     const categories =
         view['state']['values']['input-category']['input-category']
-            .selected_option.value;
+            .selected_option;
+    console.log('input data', JSON.parse(JSON.stringify(categories)));
     const message =
         view['state']['values']['input-message']['input-message'].value;
+    console.log('input data', JSON.parse(JSON.stringify(message)));
     // Add validations to forms before acknowledgement
     // This shows how to validate if cost contains only numbers and not a string
     if (message.length < 30) {
         await ack({
             response_action: 'errors',
             errors: {
-                'input-message': 'Please create a longer message'
+                'input-message': 'Please enter at least 30 characters'
             }
         });
     } else {

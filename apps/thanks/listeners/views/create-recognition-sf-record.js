@@ -35,9 +35,9 @@ const createRecognitionCallback = async ({
         await ack();
         if (context.hasAuthorized) {
             const recognitionRequestInput = {
-                categories,
-                people,
-                message
+                categoryId: categories,
+                slackMemberIds: people,
+                comments: message
             };
             try {
                 // Insert recognition

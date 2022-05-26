@@ -2,9 +2,14 @@
 
 const insertRecognition = async (connection, recognitionRequestInput) => {
     try {
-        //Get the UserId
-        const currentuser = await connection.identity();
-        const result = connection.apex.post('/SlackService/', body);
+        console.log(
+            'insertRecognition recognitionRequestInput',
+            recognitionRequestInput
+        );
+        const result = connection.apex.post(
+            '/SlackService/',
+            recognitionRequestInput
+        );
         if (!result.success) {
             throw (
                 'Failed to create travel request record in Salesforce ' +

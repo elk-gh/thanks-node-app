@@ -2,10 +2,6 @@
 
 const insertRecognition = async (connection, recognitionRequestInput) => {
     try {
-        console.log(
-            'insertRecognition recognitionRequestInput',
-            recognitionRequestInput
-        );
         const result = await connection.apex.post(
             '/v1/SlackService/',
             recognitionRequestInput

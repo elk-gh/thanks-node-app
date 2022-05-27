@@ -9,7 +9,6 @@ const { fetchCategories } = require('../../salesforce/query/category');
 
 const openCreateRecognitionModal = async (triggerId, client, context) => {
     if (context.hasAuthorized) {
-        // Query for possible approvers
         const categories = await fetchCategories(context.sfconnection);
         await client.views.open({
             trigger_id: triggerId,

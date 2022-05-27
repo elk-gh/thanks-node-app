@@ -1,15 +1,18 @@
 'use strict';
 
 const insertRecognition = async (connection, recognitionRequestInput) => {
+    const result = {};
     try {
-        const result = await connection.apex.post(
+        result = await connection.apex.post(
             '/v1/SlackService/',
             recognitionRequestInput
         );
-        return result;
     } catch (e) {
-        throw 'Failed to create recognition record in Salesforce ' + e.message;
+        result.success = false;
+        result.message =
+            'Failed to create recognition record in Salesforce ' + e.message;
     }
+    return result;
 };
 
 module.exports = {

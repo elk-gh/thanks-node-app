@@ -1,7 +1,7 @@
 'use strict';
 
 const insertRecognition = async (connection, recognitionRequestInput) => {
-    const result = {};
+    let result = {};
     try {
         result = await connection.apex.post(
             '/v1/SlackService/',

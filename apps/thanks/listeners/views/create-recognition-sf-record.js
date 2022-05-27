@@ -51,8 +51,6 @@ const createRecognitionCallback = async ({
                         trigger_id: body.trigger_id,
                         view: createRecognitionRequestSuccess()
                     });
-                    // Navigate to app home
-                    thanksCallback(context, client, userId);
                 } else {
                     // Trigger a failure message Modal
                     await client.views.open({

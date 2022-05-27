@@ -2,7 +2,6 @@
 const { Modal, Blocks, Elements, Bits } = require('slack-block-builder');
 
 const createRecognitionForm = (categories) => {
-    console.log('createRecognitionForm', categories);
     return Modal({ title: 'New Recognition', submit: 'Submit' })
         .blocks(
             Blocks.Input({ label: 'People to give thanks!' })

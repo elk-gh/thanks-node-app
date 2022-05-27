@@ -6,12 +6,6 @@ const insertRecognition = async (connection, recognitionRequestInput) => {
             '/v1/SlackService/',
             recognitionRequestInput
         );
-        if (!result.success) {
-            throw (
-                'Failed to create recognition record Salesforce ' +
-                result.message
-            );
-        }
         return result;
     } catch (e) {
         throw 'Failed to create recognition record in Salesforce ' + e.message;
